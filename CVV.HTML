@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saleh CV</title>
+
+<style>
+    body{font-family:sans-serif;margin:0;background:#fafafa;}
+    header{text-align:center;background:#2f4f6f;color:white;padding:15px;}
+    h2{margin-top:0}
+
+    .container{display:flex;flex-wrap:wrap;padding:10px;gap:10px;}
+
+    .sidebar{
+        background:white;padding:10px;border:1px solid #ddd;
+        width:220px;border-radius:4px;
+    }
+
+    .tabs{
+        flex:1;background:white;border:1px solid #ddd;
+        padding:10px;border-radius:4px;min-width:250px;
+    }
+
+    .tab-buttons{display:flex;gap:5px;border-bottom:1px solid #ddd;}
+    .tab-btn{
+        flex:1;padding:8px;background:#eee;border:none;cursor:pointer;
+        font-size:14px;
+    }
+    .tab-btn[aria-selected="true"]{background:#d0e2ff;font-weight:bold;color:#000;}
+
+    .tab-content{display:none;padding-top:10px;}
+    .active{display:block;}
+
+    .chip{background:#e8f0ff;padding:4px 8px;margin:2px;display:inline-block;border-radius:4px;font-size:13px;}
+
+    @media(max-width:700px){
+        .container{flex-direction:column;}
+        .sidebar{width:100%;}
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Saleh Ali Alqahtani</h1>
+    <p>Computer Science Student - Saudi Arabia</p>
+</header>
+
+<div class="container">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h3>Info</h3>
+        <p>GPA: 2.72/4</p>
+        <p>Projects: 3+</p>
+        <p>Internship: 1</p>
+
+        <h3>Links</h3>
+        
+        <p><a href="https://www.linkedin.com/in/saleh-alqahtani-695755342?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app">LinkedIn</a>
+</p>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab-buttons" role="tablist">
+            <button class="tab-btn" role="tab" aria-selected="true" onclick="openTab(event,'profile')">Profile</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(event,'edu')">Education</button>
+            <button class="tab-btn" role="tab" aria-selected="false" onclick="openTab(event,'projects')">Projects</button>
+        </div>
+
+        <div class="tab-content active" id="profile" role="tabpanel">
+            <h2>Profile</h2>
+            <p>I am a student at Umm Al-Qura University, majoring in Computer Science and Programming. I am interested in web development, and I enjoy working on networks, troubleshooting and fixing their problems.</p>
+
+            <h3>Highlights:</h3>
+            <ul>
+                <li>Team Worker</li>
+                <li>Quick Learner</li>
+                <li>Interested in Web and networking</li>
+            </ul>
+
+            <h3>Strengths:</h3>
+            <span class="chip">HTML</span>
+            <span class="chip">CSS</span>
+            <span class="chip">Problem Solving</span>
+        </div>
+
+        <div class="tab-content" id="edu" role="tabpanel">
+            <h2>Education & Skills</h2>
+            <p><b>Computer Science Student</b> (2024 - Present)</p>
+
+            <h3>Interests:</h3>
+            <ul>
+                <li>Web Development Basics</li>
+                <li>Database</li>
+ <li>Programming</li>
+            </ul>
+
+            <h3>Skills:</h3>
+            <span class="chip">JavaScript</span>
+            <span class="chip">Communication</span> <span class="chip"> Computer Networking </span>
+        </div>
+
+        <div class="tab-content" id="projects" role="tabpanel">
+            <h2>Projects & Contact</h2>
+            <ul>
+                <li>Simple Portfolio</li>
+                <li>To-Do App</li>
+            </ul>
+
+            <h3>Contact:</h3>
+            <p>Email: <span id="email">sasmq1111@gmail.com</span></p>
+            <button onclick="copyEmail()">Copy Email</button>
+
+            <p>Phone: +966508251578</p>
+        </div>
+    </div>
+</div>
+
+<script>
+function openTab(evt, name){
+    document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+    document.getElementById(name).classList.add('active');
+
+    document.querySelectorAll('.tab-btn').forEach(b=>b.setAttribute("aria-selected","false"));
+    evt.target.setAttribute("aria-selected","true");
+}
+
+function copyEmail(){
+    let email=document.getElementById("email").innerText;
+    navigator.clipboard.writeText(email);
+    alert("Email Copied");
+}
+</script>
+
+</body>
+</html>
